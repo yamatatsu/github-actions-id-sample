@@ -28,6 +28,5 @@ jobs:
       - run: aws lambda invoke --function-name 'MyStack-Function76856677-BDPDX1yt97N3' /dev/stdout
 
       - uses: actions/checkout@v2
-      - run: ls -al
       - run: yarn
       - run: yarn cdk diff
