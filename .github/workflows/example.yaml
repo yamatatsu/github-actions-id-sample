@@ -28,6 +28,7 @@ jobs:
       - run: aws lambda invoke --function-name 'MyStack-Function76856677-BDPDX1yt97N3' /dev/stdout
 
       - uses: actions/checkout@v2
+      - run: node -v
       - run: yarn
       - run: |
           echo '[profile default]
