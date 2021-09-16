@@ -1,5 +1,5 @@
 import { Handler } from "aws-lambda";
 
 export const handler: Handler = async () => {
-  return "Hello!!!";
+  return "実験用Lambdaだよ!!!";
 };

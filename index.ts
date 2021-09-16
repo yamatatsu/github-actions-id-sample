@@ -6,16 +6,18 @@ import {
   aws_lambda_nodejs,
 } from "aws-cdk-lib";
 
-const REPO_NAME = "github-actions-id-sample";
+const REPO_NAME = "yamatatsu/github-actions-id-sample";
 
 class MyStack extends Stack {
   constructor(parent: App, id: string, props?: StackProps) {
     super(parent, id, props);
 
+    // とある実験用Lambdaを作成。これをaccess keyを使わずにGHAから呼び出すのがゴールです。
     const lambdaFn = new aws_lambda_nodejs.NodejsFunction(this, "Function", {
       entry: "./lambda.ts",
     });
 
+    // IdPの定義
     const oidcProvider = new aws_iam.OpenIdConnectProvider(
       this,
       "OIDCProvider",
@@ -27,6 +29,7 @@ class MyStack extends Stack {
       }
     );
 
+    // IdP を AssumeRolePolicyDocument に設定した Role を作成する
     const role = new aws_iam.Role(this, "Role", {
       roleName: "ExampleGithubRole",
       assumedBy: new aws_iam.FederatedPrincipal(
@@ -40,6 +43,7 @@ class MyStack extends Stack {
       ),
     });
 
+    // Role に実験用Lambdaを実行する権限を付与
     lambdaFn.grantInvoke(role);
   }
 }
