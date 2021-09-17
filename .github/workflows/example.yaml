@@ -34,4 +34,5 @@ jobs:
           echo '[profile default]
           region = ap-northeast-1
           output = json' > ~/.aws/config
+      - run: cat ~/.aws/config
       - run: yarn cdk diff -v
