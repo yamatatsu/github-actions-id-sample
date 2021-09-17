@@ -32,4 +32,6 @@ jobs:
       - run: yarn
       - run: aws configure set region ap-northeast-1
       - run: cat ~/.aws/config
+      - run: ls -al ~/.aws
+      - run: touch ~/.aws/credentials
       - run: yarn cdk diff -v
