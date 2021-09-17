@@ -32,7 +32,6 @@ jobs:
       # aws-cdk が動くかの確認
       - uses: actions/checkout@v2
       - run: yarn
-      # - run: aws configure set region ap-northeast-1
-      # - run: touch ~/.aws/credentials
+      # aws-cdkの認証周りはSDKに依存しているので AWS_DEFAULT_REGION ではなく AWS_REGION が必要。 https://docs.aws.amazon.com/ja_jp/sdk-for-javascript/v2/developer-guide/setting-region.html#setting-region-environment-variable
       - run: echo AWS_REGION=$AWS_DEFAULT_REGION >> $GITHUB_ENV
       - run: yarn cdk diff
