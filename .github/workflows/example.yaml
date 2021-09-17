@@ -30,9 +30,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: node -v
       - run: yarn
-      - run: |
-          echo '[profile default]
-          region = ap-northeast-1
-          output = json' > ~/.aws/config
+      - run: aws configure set region ap-northeast-1
       - run: cat ~/.aws/config
       - run: yarn cdk diff -v
