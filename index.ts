@@ -41,6 +41,12 @@ class MyStack extends Stack {
         },
         "sts:AssumeRoleWithWebIdentity"
       ),
+      managedPolicies: [
+        // GitHub token id でcdkコマンドが動くかを試してみるために付与
+        aws_iam.ManagedPolicy.fromAwsManagedPolicyName(
+          "AWSCloudFormationReadOnlyAccess"
+        ),
+      ],
     });
 
     // Role に実験用Lambdaを実行する権限を付与
