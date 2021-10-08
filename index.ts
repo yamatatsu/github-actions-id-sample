@@ -23,7 +23,7 @@ class MyStack extends Stack {
       "OIDCProvider",
       {
         // 以下の３つはAWSアカウント、GitHubリポジトリに依らず固定値
-        url: "https://vstoken.actions.githubusercontent.com",
+        url: "https://token.actions.githubusercontent.com",
         clientIds: ["sigstore"],
         thumbprints: ["a031c46782e6e6c662c2c87c76da9aa62ccabd8e"],
       }
@@ -36,7 +36,7 @@ class MyStack extends Stack {
         oidcProvider.openIdConnectProviderArn,
         {
           StringLike: {
-            "vstoken.actions.githubusercontent.com:sub": `repo:${REPO_NAME}:*`,
+            "token.actions.githubusercontent.com:sub": `repo:${REPO_NAME}:*`,
           },
         },
         "sts:AssumeRoleWithWebIdentity"
