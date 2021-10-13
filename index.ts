@@ -55,7 +55,4 @@ class MyStack extends Stack {
 }
 
 const app = new App();
-new MyStack(app, "MyStack", {
-  stackName: "MyStack",
-  env: { account: "407172421073" },
-});
+new MyStack(app, "github-actions-id-sample");

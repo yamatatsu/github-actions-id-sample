@@ -14,7 +14,7 @@ jobs:
 
       - name: Configure AWS
         run: |
-          export AWS_ROLE_ARN=arn:aws:iam::407172421073:role/ExampleGithubRole
+          export AWS_ROLE_ARN=arn:aws:iam::660782280015:role/ExampleGithubRole
           export AWS_WEB_IDENTITY_TOKEN_FILE=/tmp/awscreds
           export AWS_DEFAULT_REGION=ap-northeast-1
 
