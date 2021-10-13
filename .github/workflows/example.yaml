@@ -27,7 +27,7 @@ jobs:
           curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=sigstore" | jq -r '.value' > $AWS_WEB_IDENTITY_TOKEN_FILE
 
       # aws cli が動くかの確認
-      - run: aws lambda invoke --function-name 'MyStack-Function76856677-BDPDX1yt97N3' /dev/stdout
+      - run: aws lambda invoke --function-name 'github-actions-id-sample-Function76856677-n63QcA6nKsFp' /dev/stdout
 
       # aws-cdk が動くかの確認
       - uses: actions/checkout@v2
