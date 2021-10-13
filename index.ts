@@ -36,7 +36,7 @@ class MyStack extends Stack {
         oidcProvider.openIdConnectProviderArn,
         {
           StringLike: {
-            "vstoken.actions.githubusercontent.com:sub": `repo:${REPO_NAME}:*`,
+            "token.actions.githubusercontent.com:sub": `repo:${REPO_NAME}:*`,
           },
         },
         "sts:AssumeRoleWithWebIdentity"
